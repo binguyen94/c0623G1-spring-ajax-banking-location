@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lỗi</title>
+    <style>
+        body {
+            background-color: #f8f8f8;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .error-container {
+            margin-top: 100px;
+        }
+
+        .error-title {
+            font-size: 36px;
+            color: #ff5733;
+        }
+
+        /*.error-image {*/
+        /*    animation: bounce 1s ease infinite; !* Animation chạy nhảy cho hình ảnh *!*/
+        /*}*/
+
+        .error-message {
+            font-size: 18px;
+            color: #333;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="error-container">
+    <h1 class="error-title" th:text="${errorTitle}">Lỗi</h1>
+
+    <img class="error-image" th:if="${isError404}" src="/assets/404.gif" alt="Error 404">
+    <img class="error-image" th:if="${isError500}" src="/assets/error-500-7428353-6136348.gif" alt="Error 500">
+
+    <p class="error-message" th:text="${errorMessage}">Xin lỗi, có lỗi xảy ra.</p>
+</div>
+</body>
+</html>
+
+
